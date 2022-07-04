@@ -1,27 +1,22 @@
 # APIconsumer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+- 1 Instalar el cliente http de angular en el modulo raiz src/app/app.module.ts
+    - importarlo en la cabecera de la clase
+    - declararlo en los imports
+- 2 Crear un modelo que recoja los datos de la API (models/chuckobject.ts)
 
-## Development server
+- 3 Crear un servicio que se encargue de pedir y enviar metodos al backend (API_service/chuck-api-service)
+    - importar el cliente http
+    - inyectar cliente http en el constructor 
+    - crear un metodo que extraiga información (porque es una petición get) de la API
+    - utilizar el modelo creado en el paso 2 y recoger observables del modelo en un metodo 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 4 Crear un componente para utilizar el servicio (chuck/chuck.component.ts)
+    - crear un objeto publico para acceder a el desde la vista y que recoja los datos del metodo del servicio
+    - Inyectar el servicio
+    - en el metodo onInit utilizar una funcion flecha para suscribirse al metodo de recoger informacion del servicio. Asignar el resultado al objeto request
 
-## Code scaffolding
+- 5 Crear componente html(chuck.component.html)
+    - mostrar el objeto publico creado en el componente y acceder a las prtopiedades que nos interesen
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- 6 Mostrar el componente creado en el principal
