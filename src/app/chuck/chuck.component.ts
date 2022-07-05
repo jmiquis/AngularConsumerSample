@@ -16,7 +16,7 @@ export class ChuckComponent implements OnInit {
   constructor(private service:ChuckApiServiceService) { }
 
 
-  //en el metodo onInit utilizar una funcion flecha para suscribirse al metrodo de recoger informacion del servicio. Asignar el resultado al objeto request
+  //en el metodo onInit utilizar una funcion flecha para suscribirse al metodo de recoger informacion del servicio. Asignar el resultado al objeto request
   ngOnInit(): void {
     this.service.getInfo().subscribe(request => (this.request = request));
   }
